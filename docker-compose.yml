@@ -1,0 +1,16 @@
+services:
+  docs:
+    build: ./docker
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: mkdocs serve -f site/mkdocs.yml -a 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+
+  pandoc:
+    build: ./docker
+    working_dir: /app
+    volumes:
+      - .:/app
+    entrypoint: sh

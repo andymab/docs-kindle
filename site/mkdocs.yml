@@ -1,0 +1,18 @@
+site_name: Knowledge Base
+docs_dir: ../docs
+
+theme:
+  name: material
+  palette:
+    scheme: slate
+  features:
+    - navigation.sections
+    - navigation.indexes
+
+nav:
+  - Linux:
+      - linux/index.md
+  - Docker:
+      - docker/index.md
+  - Vue:
+      - vue/index.md
