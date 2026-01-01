@@ -57,7 +57,7 @@ ifndef FILE
 	$(error Usage: make kindle FILE=epub/docker.epub)
 endif
 	docker compose run --rm $(PANDOC_SERVICE) \
-		$(SCRIPTS)/send-to-kindle.sh $(FILE)
+		python scripts/send-to-kindle.py $(FILE)
 
 # ================================
 # Utils

@@ -1,13 +1,18 @@
-FROM python:3.12-alpine
+# Используем Debian-based образ Python
+FROM python:3.12-slim
 
-RUN apk add --no-cache \
+# Устанавливаем необходимые пакеты
+RUN apt-get update && apt-get install -y \
     pandoc \
     texlive \
-    mutt \
-    msmtp
+    ca-certificates \
+    bash \
+    git \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN pip install --no-cache-dir \
-    mkdocs \
-    mkdocs-material
+# Устанавливаем MkDocs и тему Material
+RUN pip install --no-cache-dir mkdocs mkdocs-material
 
+# Рабочая директория
 WORKDIR /app

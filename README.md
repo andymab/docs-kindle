@@ -12,10 +12,13 @@ vim docs/docker/compose.md
 docker compose up docs
 
 # собрать EPUB по теме
-docker compose run pandoc sh scripts/build-epub.sh docs/docker/index.md
+# docker compose run pandoc sh scripts/build-epub.sh docs/docker/index.md
+make epub SRC=docs/docker/index.md
 
 # отправить на Kindle
-docker compose run pandoc sh scripts/send-to-kindle.sh epub/docker.epub
+# docker compose run pandoc sh scripts/send-to-kindle.sh epub/docker.epub
+make kindle FILE=epub/docker.epub
+
 
 # зафиксировать изменения
 git commit -am "Update docker docs"
